@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xKnight</title>
+
+    <script defer src="View/firstScreen.js"></script>
+    <link rel="stylesheet" href="View/default.css"/>
+</head>
+<body>
+
+<h1>
+    <marquee scrolldelay="200" scrollamount="50">xKnight</marquee>
+</h1>
+
+<button class="shadowBtn" onclick="typeWriter()">Das Erwachen der Story</button>
+
+<main id="ChatField">
+    <div id="storryTextFieldFrontPage" class="storryTextField">
+        <textarea class="storrytextArea" id="storryTextfield1" readonly rows="32" cols="66"></textarea>
+    </div>
+
+    <div id="knightNumberField">
+        <form action="" method="POST">
+            <div class="createDataField">
+                <input name="knightNumber" id="knightNumber" maxlength="5" placeholder="2er Potenz für Turnierbaum">
+                <input type="hidden" id="mode" name="mode" value="<?php echo $myMode ?>">
+            </div>
+
+            <br>
+
+            <button type="submit" id="submitButtonStart" class="shadowBtn">beginne die Spiele</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

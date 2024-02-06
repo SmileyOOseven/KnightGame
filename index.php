@@ -1,0 +1,15 @@
+<?php
+
+enable_errorMessages();
+
+require('Controller/StartController.php');
+
+function enable_errorMessages($showMessages = true): void
+{
+    if(!$showMessages){
+        return;
+    }
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}

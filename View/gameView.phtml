@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="View/default.css"/>
+
+    <script defer src="View/sound.js"> </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<h1>
+    Ritter Anzeige
+</h1>
+
+<?php foreach ($calculatedKnightsArray as $knight): ?>
+    <?php echo $knight->getName(); ?>
+    <?php echo $knight->getLifepoints(); ?>
+    <br>
+
+<?php endforeach;?>
+
+
+<form method="post">
+    <input type="hidden" id="mode" name="mode" value="<?php echo $myMode?>">
+    <br>
+
+    <button type="submit" class="gameControllBtn" id="fightBtn">Kämpfen</button>
+</form>
+
+</body>
+</html>
