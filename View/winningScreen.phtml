@@ -10,15 +10,25 @@
 
 <body>
 
-<h1>
-    And The Xnight of the Universe is
-</h1>
+<div class="wholeWinningScreen">
+<div class="winnerField">
+    And The Xnight of the Universe is <?php
+    echo $knight->getName(); ?> with <?php
+    echo $knight->getLifepoints(); ?> lifepoints.
 
-<?php
-    echo $knight->getName();
-    echo $knight->getLifepoints();
-    ?>
-<br>
+    <br>
+    <br>
+    <br>
+
+
+    <form action="" method="POST">
+        <input type="hidden" id="mode" name="mode" value="<?php echo $myMode ?>">
+        <button type="submit" id="submitButtonReset" class="shadowBtn">Auf eine neue Runde</button>
+    </form>
+</div>
+</div>
+
+
 
 </body>
 </html>

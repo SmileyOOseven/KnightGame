@@ -4,7 +4,7 @@ enable_errorMessages();
 
 require('Controller/StartController.php');
 
-function enable_errorMessages($showMessages = true): void
+function enable_errorMessages($showMessages = false): void
 {
     if(!$showMessages){
         return;

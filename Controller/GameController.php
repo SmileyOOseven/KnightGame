@@ -23,7 +23,7 @@ if ($myMode == 1) {                                                    //this if
 }
 if ($myMode == 2) {     //this else should do everytime the same operations until the last case (only one knight alive)
 
-    require_once ('Model/Knight.php');
+    require_once('Model/Knight.php');
 
     require('./Service/FightManager.php');
 
@@ -58,16 +58,16 @@ if ($myMode == 2) {     //this else should do everytime the same operations unti
     //set mode to 3 if only one Knight is alive.
 
     if (count($calculatedKnightsArray) == 1) {
-        $myMode = 3;
+        $myMode = 0;
 
         $knight = $calculatedKnightsArray[0];
-        require ('View/winningScreen.phtml');
+        require('View/winningScreen.phtml');
         die();
-    }
-    else {
+    } else {
         $myMode = 2;
     }
 
     require('View/gameView.phtml');
     die();
 }
+//hi

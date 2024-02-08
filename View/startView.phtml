@@ -22,13 +22,24 @@
         <textarea class="storrytextArea" id="storryTextfield1" readonly rows="32" cols="66"></textarea>
     </div>
 
+    <br>
+    <br>
+
     <div id="knightNumberField">
         <form action="" method="POST">
             <div class="createDataField">
-                <input name="knightNumber" id="knightNumber" maxlength="5" placeholder="2er Potenz für Turnierbaum">
+                <!--<div class="knightNumberField">
+
+                </div>-->
                 <input type="hidden" id="mode" name="mode" value="<?php echo $myMode ?>">
+                <div class="knightNumberBtns">
+                    <button onclick="multiplyBy2()" type="button" class="shadowBtn" id="multiplyBtn">mehr Ritter</button>
+                    <input name="knightNumber" id="knightNumber" maxlength="5" value="2">
+                    <button onclick="divideBy2()" type="button" class="shadowBtn" id="DivideBtn">weniger Ritter</button>
+                </div>
             </div>
 
+            <br>
             <br>
 
             <button type="submit" id="submitButtonStart" class="shadowBtn">beginne die Spiele</button>
