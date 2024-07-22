@@ -1,13 +1,10 @@
 <?php
+
 class Knight
 {
-
     //properties
-    private $name;
-    private $lifePoints;
-    private $damage;
-
-    //Methods
+    private string $name;
+    private int $lifePoints;
 
     function __construct($name = "Harald", $lifePoints = 100) //was soll alles in construct rein, sollte ich diese function mit der nächsten (setName), genau wie (setStartLifepoints), zusammenfassen?
     {
@@ -15,30 +12,29 @@ class Knight
         $this->lifePoints = $lifePoints;
     }
 
-
-    function getName(): string
+    public function getName(): string
     {
         return $this->name;
     }
 
-
-    function getLifepoints(): int
+    public function getLifepoints(): int
     {
         return $this->lifePoints;
     }
 
-    function bloodlust(int $minLife = 1, int $maxLife = 25): void
+    private function bloodlust(int $minLife = 1, int $maxLife = 25): void
     {
-        $this->lifePoints = rand($minLife,$maxLife);
+        $this->lifePoints = rand($minLife, $maxLife);
     }
 
-    function takeDamage($damage): void
+    public function takeDamage($damage): void
     {
-        $this->lifePoints = $this->lifePoints - $damage;
+        $this->lifePoints -= $damage;
     }
 
-    function triggerBloodlust($minLife=0){
-        if($this->lifePoints <= $minLife){
+    public function triggerBloodlust($minLife = 0): void
+    {
+        if ($this->lifePoints <= $minLife) {
             $this->bloodlust();
         }
     }
@@ -49,16 +45,11 @@ class Knight
         return rand($min, $max);
     }
 
-    function getSaveData(): array
+    public function getSaveData(): array
     {
-    return [
-        "name"=>$this->name,
-        "lifepoints"=>$this->lifePoints
+        return [
+            "name" => $this->name,
+            "lifepoints" => $this->lifePoints
         ];
-    }
-
-    function useLoadedData($data):void
-    {
-        // speichert geladene Daten im Ritter
     }
 }

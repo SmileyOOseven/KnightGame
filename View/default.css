@@ -1,5 +1,4 @@
 body {
-    --msg-background-left: ;
     --StarWarsTextColor: #f6fc1e;
 
     background-image: url('../assets/pictures/background/starBG.jpg');
@@ -16,7 +15,19 @@ body {
     align-items: center;
 }
 
-#ChatField {
+button {
+    border-radius: 13px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:active {
+    position: relative;
+    top: 0.1em;
+}
+
+#startContainer {
     width: 40em;
     height: 29.5em;
     border: none;
@@ -25,11 +36,6 @@ body {
     opacity: 0.89;
     background-color: black;
     overflow: scroll;
-}
-
-@font-face {
-    font-family: oldStyle;
-    src: url('../assets/fonts/haziness/Haziness.ttf');
 }
 
 @font-face {
@@ -43,39 +49,23 @@ body {
 }
 
 @font-face {
-    font-family: starWarsRegularOutline;
-    src: url('../assets/fonts/sf-distant-galaxy/TrueType/SFDistantGalaxyAltOutline-I.ttf');
-}
-
-@font-face {
     font-family: starWarsRegularOutlineAlternate;
     src: url('../assets/fonts/sf-distant-galaxy/TrueType/SFDistantGalaxyOutline.ttf');
 }
 
 .gameControllBtn {
     box-shadow: inset 25px -10px 30px 17px #bec46c;
-    background: linear-gradient(to bottom, #eaf09c 5%, #96923f 100%);
-    background-color: #eaf09c;
-    border-radius: 13px;
-    display: inline-block;
-    cursor: pointer;
+    background: #eaf09c linear-gradient(to bottom, #eaf09c 5%, #96923f 100%);
     color: #000000;
     font-family: Arial;
     font-size: 20px;
     font-weight: bold;
     padding: 16px 31px;
-    text-decoration: none;
     text-shadow: 0px 0px 9px #c4923d;
 }
 
 .gameControllBtn:hover {
-    background: linear-gradient(to bottom, #96923f 5%, #eaf09c 100%);
-    background-color: #96923f;
-}
-
-.gameControllBtn:active {
-    position: relative;
-    top: 1px;
+    background: #96923f linear-gradient(to bottom, #96923f 5%, #eaf09c 100%);
 }
 
 h1 {
@@ -100,14 +90,10 @@ main {
 .shadowBtn {
     box-shadow: inset 2px 2px 9px 6px #bbbdb0;
     background-color: transparent;
-    border-radius: 13px;
-    display: inline-block;
-    cursor: pointer;
     color: white;
     font-family: starWarsAlternate;
     font-size: 1em;
     padding: 12px 33px;
-    text-decoration: none;
     text-shadow: 0px 0px 0px #154682;
 }
 
@@ -115,18 +101,13 @@ main {
     background-color: transparent;
 }
 
-.shadowBtn:active {
-    position: relative;
-    top: 0.1em;
-}
-
-#storryTextFieldFrontPage {
+#storyTextFieldFrontPage {
     line-break: strict;
     text-transform: uppercase;
     width: 29em;
 }
 
-.storrytextArea {
+.storyTextArea {
     color: var(--StarWarsTextColor);
     font-family: Arial;
     border: none;
@@ -134,22 +115,14 @@ main {
     background-color: transparent;
 }
 
-.createDataField {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .knightNumberField {
     display: flex;
-
 }
 
 .knightNumberBtns {
     display: flex;
     justify-content: space-around;
 }
-
 
 #knightNumber {
     border: none;
@@ -163,12 +136,6 @@ main {
     text-align: center;
 }
 
-
-.wholeWinningScreen {
-    position: relative;
-    height: 100vh;
-}
-
 .winnerField {
     position: absolute;
     top: 50%;
@@ -177,4 +144,3 @@ main {
     color: var(--StarWarsTextColor);
     white-space: nowrap;
 }
-

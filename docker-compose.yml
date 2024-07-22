@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  knightgame:
+    build:
+      context: .
+    image: knightimage
+    ports:
+      - "8080:80"
+

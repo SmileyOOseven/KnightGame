@@ -1,34 +1,27 @@
 <!Doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="View/default.css"/>
-
-    <script defer src="View/sound.js"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/pictures/favicon/knightFavicon.png">
+
+    <link rel="stylesheet" href="View/default.css"/>
+    <script defer src="View/sound.js"></script>
 </head>
 
 <body>
 
-<div class="wholeWinningScreen">
 <div class="winnerField">
-    And The Xnight of the Universe is <?php
-    echo $knight->getName(); ?> with <?php
-    echo $knight->getLifepoints(); ?> lifepoints.
-
+    And The Xnight of the Universe is
+    <?= $knight->getName(); ?> with
+    <?= $knight->getLifepoints(); ?> lifepoints.
     <br>
     <br>
     <br>
-
-
     <form action="" method="POST">
-        <input type="hidden" id="mode" name="mode" value="<?php echo $myMode ?>">
-        <button type="submit" id="submitButtonReset" class="shadowBtn">Auf eine neue Runde</button>
+        <input type="hidden" id="mode" name="mode" value="<?= $myMode ?>">
+        <button type="submit" class="shadowBtn">Auf eine neue Runde</button>
     </form>
 </div>
-</div>
-
-
 
 </body>
 </html>

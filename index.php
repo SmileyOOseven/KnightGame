@@ -1,6 +1,6 @@
 <?php
 
-enable_errorMessages();
+enable_errorMessages(false);
 
 require('Controller/StartController.php');
 

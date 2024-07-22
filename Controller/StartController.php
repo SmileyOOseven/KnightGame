@@ -1,39 +1,28 @@
 <?php
 
-/*
- * Explanation of the modes: thy get set whenever an other game phase starts
- *
- * mode 0 = default
- * mode 1 = startpage
- * mode 2 = gamepage
- * mode 3 = winpage
- */
 
+//Each mode is clearly assigned to a display page or its data to be transmitted
 
-$myMode = $_POST['mode'] ?? 0;
+const STARTPAGE = '1';
+const GAMEPAGE = '2';
+const WINPAGE = '3';
 
-if (isset($_POST['knightNumber'])) {
-    $countOfKnights = $_POST['knightNumber'];
-}
+$myMode = $_POST['mode'] ?? STARTPAGE;
+$countOfKnights = $_POST['knightNumber'] ?? null;
 
-if ($myMode == 2 || $myMode == 3) {
+if ($myMode == GAMEPAGE || $myMode == WINPAGE) {
     require('GameController.php');
 }
 
-if (isset ($countOfKnights)) {
-        require_once('Service/ConditionManager.php');
-        $ConditionManager = new  ConditionManager;
-        $isNumberInCondition = $ConditionManager->isPotencyOfTwo($countOfKnights);
-        if (is_numeric($countOfKnights) && $isNumberInCondition)
-            $myMode = 1;                                                                            //switching in the first mode
+if ($countOfKnights !== null) {
+    require_once('Service/ConditionManager.php');
+    $ConditionManager = new  ConditionManager;
+    $isNumberValid = $ConditionManager->isPotencyOfTwo($countOfKnights);
+
+    if ($isNumberValid) {
         require('GameController.php');
-} else {
-    //http_response_code(400);
-    require('View/startView.phtml');
-    die();
+    }
 }
 
-if ($myMode == 0) {
-    require('View/startView.phtml');
-    die();
-}
+require('View/startView.phtml');
+die();

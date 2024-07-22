@@ -2,17 +2,13 @@
 
 class ConditionManager
 {
-    function isPotencyOfTwo($number): bool
+    public function isPotencyOfTwo($number): bool
     {
-        if (is_numeric($number)) {
-            if ($number <= 1) {
-                return false;
-            }
-            return ($number & ($number - 1)) == 0;
-        }
-        else{
+        if (!is_numeric($number) || $number <= 1) {
             return false;
         }
+        //automatic conversion to binary due to &
+        return ($number & ($number - 1)) === 0;
 
         /*
          * 7 in binary = 0111               8 = 1000                every potency of stand is in binary a 1 (with some 0 at the end)

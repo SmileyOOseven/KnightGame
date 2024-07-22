@@ -10,20 +10,32 @@
 
 class FightManager
 {
-    /**
-     * @var Knight
-     */
-    public $knightA;
-    /**
-     * @var Knight
-     */
-    public $knightB;
+    private Knight $knightA;
 
-    private $knightWinner;
+    private Knight $knightB;
 
-    public array $calculatedKnightsArray;
+    private Knight $knightWinner;
 
-    function getTwoKnights(array &$knightsArray): void
+    private array $winners;
+    private array $knightsArray;
+
+    function __construct(&$knightsArray)
+    {
+        $this->knightsArray = &$knightsArray;
+    }
+
+    public function doFight(): void
+    {
+        $this->getTwoKnights($this->knightsArray); //delete also (array_pop)
+
+        $this->takeDamage();
+
+        $this->knightComparison();
+
+        $this->saveWinner();
+    }
+
+    private function getTwoKnights(array &$knightsArray): void
     {
         shuffle($knightsArray);
 
@@ -32,33 +44,36 @@ class FightManager
         $this->knightB = array_pop($knightsArray);
     }
 
-    function takeDamage(): void
+    public function getWinners(): array
+    {
+        return $this->winners;
+    }
+
+    private function takeDamage(): void
     {
         $this->knightA->takeDamage($this->knightB->giveDamage());
         $this->knightB->takeDamage($this->knightA->giveDamage());
     }
 
-
-    function KnightComparsion(): void
+    private function knightComparison(): void
     {
         $lifePointsKA = $this->knightA->getLifepoints();
         $lifePointsKB = $this->knightB->getLifepoints();
 
-        if ($lifePointsKA <0 && $lifePointsKB <0) {
+        if ($lifePointsKA < 0 && $lifePointsKB < 0) {
             $this->knightA->triggerBloodlust();
             $this->knightB->triggerBloodlust();
         }
 
         if ($lifePointsKA >= $lifePointsKB) {
             $this->knightWinner = $this->knightA;
-        }
-        else {
+        } else {
             $this->knightWinner = $this->knightB;
         }
     }
 
-    function saveCalculatedKnights(): void
+    private function saveWinner(): void
     {
-        $this->calculatedKnightsArray[] = $this->knightWinner;
+        $this->winners[] = $this->knightWinner;
     }
 }

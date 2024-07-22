@@ -3,15 +3,15 @@ require('Model/Knight.php');
 
 class KnightManager
 {
-    public array $knightsArray = [];
-
-    function createKnights(int $userInput): array
+    public function createKnights(int $userInput): array
     {
+        $knightsArray = [];
+
         for ($i = 1; $i <= $userInput; $i++) {
             $knight = new Knight("Ritter" . $i);
-            $this->knightsArray[] = $knight;
+            $knightsArray[] = $knight;
         }
 
-        return $this->knightsArray;
+        return $knightsArray;
     }
 }
